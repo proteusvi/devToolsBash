@@ -28,7 +28,7 @@ addIndexValue 'tools' "${work_path}/devToolsBash"
 #
 # Paramètre de la commande
 alias="$1"
-getlistOfCollection
+
 while ! existIn "${alias}" || [ "$alias" == "" ]; do
   echo "The project aliases list :"
   displayIndexes
