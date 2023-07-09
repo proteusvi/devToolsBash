@@ -13,8 +13,8 @@ open goProject and replace the existing _addIndexValue_ with your index values w
 - value : the path of your project.
 ### How to use it ?
 To go to your project launch goProject as :
-´$ . ~/bin/goProject [<alias name>]
-If you do not write the _alias name_, the script will ask you to choose from a list dispolayed.
+´$ . ~/bin/goProject \[\<alias name\>\]´
+If you do not write the _alias name_, the script will ask you to choose from a list displayed.
 
 ## CollectionLibrary
 Is a colection library to get fonctionnalities to manage a simple collection of array indexes, values and positions.
