@@ -1,0 +1,47 @@
+#!/bin/bash
+#    .--.
+#   |o_o |
+#   |:_/ |
+#  //   \ \
+# (|     | )
+#/'\_   _/`\
+#\___)=(___/
+#
+#+-----------------------------+
+#| Script pour se positionner  | 
+#| dans le projet désiré       |
+#| Paramètre facultatif.       |
+#|   - alias du projet         |
+#| @author dbeux@infomaniak.ch |
+#| @since  dim 09 jui 2023     |
+#+-----------------------------+
+#
+# Call the CollectionLibrary.
+. CollectionLibrary
+#
+# Variables et constantes
+work_path="${HOME}/workspace"
+#
+# Ajout du chemin du projet Aglae et de son alias.
+addIndexValue 'aglae' "${work_path}/aglae"
+addIndexValue 'tools' "${work_path}/devToolsBash"
+#
+# Paramètre de la commande
+alias="$1"
+getlistOfCollection
+while ! existIn "${alias}" || [ "$alias" == "" ]; do
+  echo "The project aliases list :"
+  displayIndexes
+  echo -en "Please enter alias name : "
+  read alias
+  if ! existIn ${alias}; then
+     echo "Alias name incorrect."
+     alias=""
+  fi
+done
+#
+if [ -d $(getValueFromIndex ${alias}) ]; then
+  cd $(getValueFromIndex ${alias})
+else
+  echo "Directory $(getValueFromIndex ${alias}) not found."
+fi
