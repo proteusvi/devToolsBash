@@ -5,7 +5,9 @@ Bash tools to help development into my linux environment
 It is a tool to go to my project directory in my workspace directory.
 It depends on CollectionLibrary.
 Tu use it, you have to create a bin directory in your account directory for exemple :
-´$ mkdir ${HOME}/bin´
+```bash
+ $ mkdir ${HOME}/bin
+ ```
 Copy the CollectionLibrary and goProjet into the bin directory.
 ### How to adapt your configuration
 open goProject and replace the existing _addIndexValue_ with your index values where 
@@ -13,7 +15,9 @@ open goProject and replace the existing _addIndexValue_ with your index values w
 - value : the path of your project.
 ### How to use it ?
 To go to your project launch goProject as :
-´$ . ~/bin/goProject \[\<alias name\>\]´
+```bash
+$ . ~/bin/goProject [<alias name>]
+```
 If you do not write the _alias name_, the script will ask you to choose from a list displayed.
 
 ## CollectionLibrary

@@ -25,6 +25,7 @@ work_path="${HOME}/workspace"
 # Ajout du chemin du projet Aglae et de son alias.
 addIndexValue 'aglae' "${work_path}/aglae"
 addIndexValue 'tools' "${work_path}/devToolsBash"
+addIndexValue 'ngeo' "${work_path}/ngeo"
 #
 # Paramètre de la commande
 alias="$1"
@@ -40,8 +41,24 @@ while ! existIn "${alias}" || [ "$alias" == "" ]; do
   fi
 done
 #
+
 if [ -d $(getValueFromIndex ${alias}) ]; then
-  cd $(getValueFromIndex ${alias})
+  project_path="$(getValueFromIndex ${alias})"
+  cd ${project_path}
+  if [ -d "./docker" ]; then
+     res=''
+     while [ "${res}" != "Y" ] && [ "${res}" != "N" ]; do
+        echo 'Direcrory docker found.'
+		    echo -ne 'Would you like to go into docker directory ? [Y|N] : '
+        read res
+        if [ "${res}" == 'Y' ]; then
+           cd './docker'
+        fi
+     done
+  fi
+  if [ -f ".aliases" ]; then
+     . ".aliases"
+  fi
 else
   echo "Directory $(getValueFromIndex ${alias}) not found."
 fi
